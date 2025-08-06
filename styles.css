@@ -312,6 +312,50 @@ a:hover {
   color: #6c757d;
 }
 
+/* Note text in video section */
+.video-note {
+  font-size: 0.95rem;
+  margin-bottom: 2rem;
+  color: #495057;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Grid layout for multiple demo videos */
+.video-grid {
+  display: grid;
+  /* Two columns on larger screens to align videos neatly */
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto 2rem;
+}
+
+.video-item {
+  text-align: left;
+}
+
+.video-item h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: #0b533f;
+}
+
+.video-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.video-frame iframe {
+  width: 100%;
+  height: 100%;
+}
+
 /* POC information styling for the video section */
 .video .poc-info {
   background-color: #e9f7f1;
@@ -465,5 +509,12 @@ a:hover {
   .hero-content {
     padding-right: 0;
     margin-bottom: 1.5rem;
+  }
+}
+
+/* Responsive layout adjustments for video grid */
+@media (max-width: 768px) {
+  .video-grid {
+    grid-template-columns: 1fr;
   }
 }
