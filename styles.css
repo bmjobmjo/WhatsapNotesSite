@@ -385,6 +385,20 @@ a:hover {
   color: #495057;
 }
 
+/* QR code styling inside POC info */
+.video .poc-info .qr-code {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.video .poc-info .qr-code img {
+  max-width: 160px;
+  width: 100%;
+  height: auto;
+  display: inline-block;
+  border-radius: 8px;
+}
+
 /* Call to Action Section */
 .cta-section {
   background-color: #00a884;
