@@ -92,6 +92,18 @@
             <p>We're currently offering a public proof‑of‑concept (POC) for WhatsApp&nbsp;Notes. To join and test it yourself, send the message <code>join settlers‑born</code> to our WhatsApp test number <strong>+1&nbsp;(415)&nbsp;523‑8886</strong> (or +14155238886). You'll receive an invite and can start exploring the service right away.</p>
             <p><strong>Join instantly:</strong> <a href="https://wa.me/14155238886?text=join%20settlers-born" target="_blank" rel="noopener">https://wa.me/14155238886?text=join%20settlers-born</a></p>
             <div class="qr-code"><img src="assets/wa_join_qr.png" alt="WhatsApp join QR code"></div>
+
+            <!-- How to use instructions for the POC -->
+            <div class="how-to-use">
+                <h4>How to Use WhatsApp&nbsp;Notes</h4>
+                <ol>
+                    <li><strong>Add &amp; Join:</strong> Save our test number in your contacts and send <code>join settlers‑born</code> to join the POC.</li>
+                    <li><strong>Upload important (Dummy) documents:</strong> You can now upload documents you may need later such as ID cards, tickets or prescriptions.</li>
+                    <li><strong>Save details for quick recall:</strong> Send messages prefixed with keywords like <em>save</em> or <em>store</em> to record addresses, subscription numbers or any information you might want to retrieve later.</li>
+                    <li><strong>Ask questions:</strong> Once you've stored content, simply ask questions related to it and WhatsApp&nbsp;PA will fetch the answer.</li>
+                </ol>
+                <p class="important-note"><strong>Remember:</strong> WhatsApp&nbsp;PA can only answer questions about the information you have stored.</p>
+            </div>
         </div>
     </section>
 
@@ -193,13 +205,62 @@
     <section id="contact" class="cta-section">
         <h2>Ready to Get Started?</h2>
         <p>Add <strong>WhatsApp&nbsp;Notes</strong> to your contacts and enjoy effortless note‑taking, organized information, and smart reminders powered by AI.</p>
-        <!-- Updated CTA button directs users to the POC information section -->
-        <a href="#video" class="cta-button">Try the WhatsApp Notes POC</a>
+        <!-- CTA button now opens the WhatsApp join link directly instead of scrolling to the video section -->
+        <a href="https://wa.me/14155238886?text=join%20settlers-born" class="cta-button" target="_blank" rel="noopener">Try the WhatsApp Notes POC</a>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
         <p>&copy; 2025 WhatsApp Notes. All rights reserved.</p>
     </footer>
+
+    <!-- Full-screen video overlay (initially hidden) -->
+    <div id="videoOverlay" class="video-overlay">
+        <div class="close-btn" id="videoOverlayCloseBtn">&times;</div>
+        <iframe id="videoOverlayIframe" src="" title="Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+
+    <!-- Script to enable full-screen modal playback of videos on click -->
+    <script>
+    // Add click handler to each video frame to open in a full-screen overlay
+    document.addEventListener('DOMContentLoaded', function () {
+        const overlay = document.getElementById('videoOverlay');
+        const overlayIframe = document.getElementById('videoOverlayIframe');
+        const closeBtn = document.getElementById('videoOverlayCloseBtn');
+
+        document.querySelectorAll('.video-frame').forEach(function (frame) {
+            frame.addEventListener('click', function (event) {
+                // Prevent default click behavior on embedded iframe
+                event.preventDefault();
+                // Extract the original YouTube embed src from the nested iframe
+                const iframe = frame.querySelector('iframe');
+                if (!iframe) return;
+                let src = iframe.getAttribute('src');
+                // If the src already has query parameters, append autoplay
+                if (src.includes('?')) {
+                    src = src + '&autoplay=1';
+                } else {
+                    src = src + '?autoplay=1';
+                }
+                overlayIframe.setAttribute('src', src);
+                overlay.classList.add('active');
+            });
+        });
+
+        // Close overlay when close button is clicked
+        closeBtn.addEventListener('click', function () {
+            overlay.classList.remove('active');
+            // Stop the video by resetting the src
+            overlayIframe.setAttribute('src', '');
+        });
+        // Also close overlay when clicking outside the iframe content
+        overlay.addEventListener('click', function (event) {
+            if (event.target === overlay) {
+                overlay.classList.remove('active');
+                overlayIframe.setAttribute('src', '');
+            }
+        });
+    });
+    </script>
 </body>
 </html>
