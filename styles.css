@@ -584,6 +584,8 @@ a:hover {
   text-decoration: underline;
 }
 
+
+
 /* Footer */
 .footer {
   background-color: #ffffff;
@@ -614,4 +616,56 @@ a:hover {
   .video-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* Count Section */
+.count-icon img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+.count {
+  background-color: #ffffff;
+  padding: 3rem 1rem;
+}
+
+.count-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.count-item {
+  background-color: #f7f9fc;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.count-icon {
+  font-size: 2.5rem;
+  color: #00a884;
+  margin-bottom: 0.75rem;
+}
+
+.count-item h3 {
+  font-size: 2rem;
+  margin-bottom: 0.25rem;
+  color: #0b533f;
+}
+
+.count-item p {
+  font-size: 1rem;
+  color: #495057;
+  margin: 0;
+}
+
+.count h2 {
+    text-align: center;
+    color: #2C3E50;
+    font-size: 32px;
+    margin-bottom: 20px;
 }
